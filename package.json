@@ -1,0 +1,27 @@
+{
+  "name": "ynu_send_mail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "scss-powertools scss/bootstrap-modal.scss css/bootstrap-modal.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ynu/ynu_send_mail.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ynu/ynu_send_mail/issues"
+  },
+  "homepage": "https://github.com/ynu/ynu_send_mail#readme",
+  "dependencies": {
+    "bootstrap": "^4.1.3"
+  },
+  "devDependencies": {
+    "scss-powertools": "^1.0.1"
+  }
+}
