@@ -1,19 +1,14 @@
         $(function () {
             function done(message) {
-                console.info(`message: ${message}`);
+                console.info(`getting message: ${message}`);
                 $('#mailModal').modal('hide');
-                //  $("#mailProgress").hide();
                 $("#mailProgress").css({
                     'display': 'none'
                 });
-                $('.alert').css({
-                    'display': 'block'
-                });
-                setTimeout(function() {
-                    $('.alert').css({
-                        'display': 'none'
-                    });
-                }, 3000);
+                $("#mailSubmit").removeClass('disabled');
+                setTimeout(function () {
+                    alert("提交信息成功！");
+                }, 100);
             }
 
             $('#mailModal').on('click', '#mailSubmit', function () {
@@ -21,11 +16,15 @@
                 var from = "sfjb-client@ynu.edu.cn";
                 var to = "sfjb@ynu.edu.cn";
                 var subject = "四风举报";
-                console.info(`sending mail from ${from} to ${to} with subject {subject} and content ${content}`);
-                // $("#mailProgress").show();
+                if (!content.trim()) {
+                    alert("提交信息不能为空！");
+                    return;
+                }
+                console.info(`sending mail from ${from} to ${to} with subject ${subject} and content ${content}`);
                 $("#mailProgress").css({
                     'display': 'block'
                 });
+                $("#mailSubmit").addClass('disabled');
                 Email.send(
                     from,
                     to,
@@ -35,5 +34,9 @@
                         callback: done
                     }
                 );
+                // setTimeout(function() {
+                //     done();
+                // }, 3000);
+
             });
         });
